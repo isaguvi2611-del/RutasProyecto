@@ -1,0 +1,149 @@
+.gasoek-one-regular {
+  font-family: "Gasoek One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body{
+    background-color: #F7F1E8;
+}
+#banner{
+    background-color: #f1dc59;
+    justify-self: center;
+    margin: 5%;
+    width: 100%;
+    height: 100px;
+    min-width: 100px;
+    max-width: 1200px;
+    border-radius: 20px;
+}
+#seccionItems{
+    display: flex;
+    gap: 3%;
+    margin: 3%;
+}
+#card:hover{
+    transform: translateY(-8px) scale(1.1);
+}
+#card1{
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    justify-content: center;
+    align-items: center;
+    background-color: #a5b7e9;
+    width: 80%;
+    max-width: 400px;
+    min-height: auto;
+    border-radius: 50px;
+}#morad img{
+    width: 70%;
+    margin: 5%;
+    background-color: #6488e8;
+    border-radius: 90%;
+}#morad{
+    text-align: center;
+    justify-self: center;
+}
+
+#card2{
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    justify-content: center;
+    align-items: center;
+    background-color: #a2d9db;
+    width: 80%;
+    max-width: 400px;
+    min-height: auto;
+    border-radius: 50px;
+}#amarillo img{
+    width: 70%;
+    margin: 5%;
+    background-color: #45d4d9;
+    border-radius: 90%;
+}#amarillo{
+    text-align: center;
+    justify-self: center;
+}
+
+#card3{
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    justify-content: center;
+    align-items: center;
+    background-color: #bce7a2;
+    width: 80%;
+    max-width: 400px;
+    min-height: auto;
+    border-radius: 50px;
+}#rojito img{
+    width: 70%;
+    margin: 5%;
+    background-color: #9BE86D;
+    border-radius: 90%;
+}#rojito{
+    text-align: center;
+    justify-self: center;
+}
+
+#card4{
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    justify-content: center;
+    align-items: center;
+    background-color: #c1aee0;
+    width: 80%;
+    max-width: 400px;
+    min-height: auto;
+    border-radius: 50px;
+}#rosa img{
+    width: 70%;
+    margin: 5%;
+    background-color: #9B7ACF ;
+    border-radius: 90%;
+}#rosa{
+    text-align: center;
+    justify-self: center;
+}
+
+#morad, #rosa, #amarillo, #rojito{
+    cursor: pointer;
+}
+
+#moradito{
+    background-color: #ffeb6a;
+    border-radius: 100%;
+}#moradito img{
+    width: 90%;
+    width: 90%;
+    max-width: 200px;
+    min-width: 20px;
+}
+P{
+    font-family: "Gasoek One";
+    color: #780b35;
+    cursor: pointer;
+    font-size: clamp(14px, 2vw, 24px);
+    line-height: 1.9;
+    text-align: center;
+    justify-self: center;
+    background-color: blanchedalmond;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 200px;
+    min-width: 50px;
+}
+#ruta{
+    background-color: #efb3d7;
+    border-radius: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#title{
+    margin: 5%;
+    font-family: "Gasoek One";
+    color: #780b35;
+    cursor: pointer;
+    font-size: clamp(24px, 8vw, 34px);
+    line-height: 1.9;
+    width: 100%;
+    max-width: 300px;
+    min-width: 50px;
+}
