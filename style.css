@@ -8,14 +8,21 @@ body{
     background-color: #F7F1E8;
 }
 #banner{
-    background-color: #f1dc59;
+    line-height: 1.9;
+    white-space: nowrap;
+    padding: 1%;
+    text-align: center;
+    color: #d31111;
+    font-family: "Gasoek One";
+    font-size: clamp(6px, 5vw, 45px);
+    background-color: #ffed7b;
     justify-self: center;
     margin: 5%;
     width: 100%;
-    height: 100px;
+    height: 160px;
     min-width: 100px;
-    max-width: 1200px;
-    border-radius: 20px;
+    max-width: 1900px;
+    border-radius: 200px;
 }
 #seccionItems{
     display: flex;
@@ -137,13 +144,116 @@ P{
 }
 
 #title{
-    margin: 5%;
+    padding: 4%;
+    white-space: nowrap;
     font-family: "Gasoek One";
-    color: #780b35;
-    cursor: pointer;
-    font-size: clamp(24px, 8vw, 34px);
+    color: #6a0b78;
+    font-size: clamp(16px, 5vw, 45px);
     line-height: 1.9;
     width: 100%;
     max-width: 300px;
     min-width: 50px;
+}
+#colum{
+    flex: 1 1 120px;
+    display: flex;
+    flex-direction: column;
+}
+#agg{
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: 200px;
+    margin: 5%;
+    display: flex;
+    gap: 8%;
+    
+}
+input{
+    width: 100%;
+    min-width: 100px;
+    max-width: 200px;
+    background-color: #cfe9bf;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgb(92, 234, 16);
+    box-sizing: border-box;
+}
+label{
+    font-family: "Gasoek One";
+    color: #0e6821;
+    font-size: clamp(14px, 2vw, 40px);
+}
+
+button{
+    font-size: clamp(2px, 5vw, 25px);
+    font-family: "Gasoek One";
+    color: #0e6821;
+    background-color: #bce7a2;
+    width: 200px;
+    border-radius: 20px;
+    border-color: #9BE86D ;
+}
+button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    color:#9BE86D;
+    background-color: #0e6821;
+}
+#contenedorCards{
+    flex-wrap: wrap;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+
+#cardd{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 350px;
+    min-height: 500px;
+    padding: 20px;
+    margin: 20px auto;
+    background: #ffc68d;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgb(58, 95, 96);
+    transition: transform 0.3s;
+    box-sizing: border-box;
+}
+
+#cardd:hover{
+    transform: translateY(-5px);
+}
+
+#cardd img{
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: auto;
+    object-fit: cover;
+}
+
+.content{
+    padding: 15px;
+    width: 100%;
+}
+
+h6{
+    text-align: center;
+    font-size: clamp(12px, 2vw, 18px);
+}
+@media (max-width: 768px){
+
+    #contenedorCards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
 }
