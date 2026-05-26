@@ -12,27 +12,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section>
-        <div id="banner">BIENVENIDO A NUESTRO <br> SISTEMA DE RUTAS</div>
+    <section id="banner">
+        <div id="v"> RUTAS SEGURAS KIDS </div>
+        <div id="bus"><img src="Copilot_20260522_125456.png" alt=""></div>
     </section>
     <section id="seccionItems">
         <div id="card1">
             <div id="morad"> <img src="naranja.png" alt=""></div>
-            <div><p>RUTAS</p></div>
+            <div><p onclick="abrirModal('rutas')">RUTAS</p></div>
         </div>
+
         <div id="card2">
             <div id="amarillo"> <img src="amarillo.png" alt=""></div>
-            <div><p>ESTUDIANTE</p></div>
+            <div><p onclick="abrirModal('estudiantes')">ESTUDIANTE</p></div>
         </div>
+
         <div id="card3">
             <div id="rojito"> <img src="rojito.png" alt=""></div>
-            <div><p>BUSETAS</p></div>
+            <div><p onclick="abrirModal('conductores')">BUSETAS</p></div>
         </div>
+
         <div id="card4">
             <div id="rosa"> <img src="rosa.png" alt=""></div>
-            <div><p>CLIMA</p></div>
+            <div><p onclick="abrirModal('clima')">CLIMA</p></div>
         </div>
     </section>
+
     <section>
         <div id="ruta">
             <div id="moradito"><img src="morado.png" alt=""></div>
@@ -41,55 +46,83 @@
         <div id="agg">
             <div id="colum">
                 <label for="">NOMBRE RUTA</label>
-                <input type="RUTA NORTE">
+                <select id="rutaSelect"><option value="">RUTAS</option></select>
             </div>
             <div id="colum">
-                <label for="">CONDUCTOR</label>
-                <input type="RUTA NORTE">
+                <label  for="">CONDUCTOR</label>
+                <select id="conductorSelect"><option value="">CONDUCTORES</option></select>
             </div>
             <div id="colum">
                 <label for="">HORA SALIDA</label>
-                <input type="RUTA NORTE">
+                <input type="time" placeholder="Escribe una hora" type="RUTA NORTE">
             </div>
             <div id="colum">
-                <label for="">CIUDAD</label>
-                <input type="RUTA NORTE">
+                <label for="">ESTUDIANTE</label>
+                <select id="estudianteSelect"><option value="">ESTUDIANTES</option></select>
             </div>
-            <div>
-                <button> + AGREGAR RUTA</button>
+            
+            <div id="clumna">
+                <button onclick="guardarFicha()"> + AGREGAR RUTA</button>
+                <button onclick="eliminarUnaFicha()"> + ELIMINAR RUTA</button>
             </div>
         </div>
     </section>
-    <section id="contenedorCards">
-        <article id="cardd">
-            <img id="o" src="amarillo.png" alt="pinterest">
-            <div class="content">
-                <h6>RUTA SUR</h6>
-                <h5>CONDUCTOR: CARLOS <br> HORA 6:00</h5>
-                <ul id="listaEst"></ul>
-                <button>AGREGAR</button>
-            </div>
-        </article>
+    <div id="contenedorFichas"></div>
 
-        <article id="cardd">
-            <img id="o" src="amarillo.png" alt="pinterest">
-            <div class="content">
-                <h6>RUTA SUR</h6>
-                <h5>CONDUCTOR: CARLOS <br> HORA 6:00</h5>
-                <ul id="listaEst"></ul>
-                <button>AGREGAR</button>
-            </div>
-        </article>
+<div id="modal" class="modal">
+    <div class="contenido-modal">
+        <span class="cerrar" onclick="cerrarModal()">ᯓ★</span>
+        <div id="contenido"></div>
+    </div>
+</div>
 
-        <article id="cardd">
-            <img id="o" src="amarillo.png" alt="pinterest">
-            <div class="content">
-                <h6>RUTA SUR</h6>
-                <h5>CONDUCTOR: CARLOS <br> HORA 6:00</h5>
-                <ul id="listaEst"></ul>
-                <button>AGREGAR</button>
-            </div>
-        </article>
-    </section>
+<div id="conductores" class="plantilla1">
+    <h2>FORMULARIO CONDUCTORES</h2>
+    <div id="flex">
+        <input id="nombreConductor" type="text" placeholder="NOMBRE">
+        <input id="telefonoConductor" type="text" placeholder="APELLIDO">
+            <button id="guardar" onclick="guardarConductor()">REGISTRAR</button>
+    </div>
+    <div id="listaConductores"></div>
+</div>
+
+
+<div id="estudiantes" class="plantilla2">
+    <h2>FORMULARIO ESTUDIANTES</h2>
+    <div id="est1">
+        <input id="nombreEstudiante" type="text" placeholder="NOMBRE ESTUDIANTE">
+        <input  id="telefonoEstudiante" type="text" placeholder="APELLIDO">
+        <input id="cursoEstudiante" type="number" placeholder="DOCUMENTO">
+        <div id="m">
+            <button id="botoncito" onclick="guardarEstudiante()">REGISTRAR</button>
+        </div>
+    </div>
+    <div id="listaEstudiantes"></div>
+</div>
+
+<div id="clima" class="plantilla2">
+    <h2>CLIMA</h2>
+    <input 
+    type="text" 
+    id="ciudad" 
+    placeholder="NOMBRE DE LA CIUDAD">
+    <button onclick="buscarClima()">
+        BUSCAR
+    </button>
+    <div id="resultadoClima"></div>
+</div>
+
+<div id="rutas" class="plantilla3">
+    <h2>FORMULARIO RUTAS</h2>
+    <div id="est3">
+        <input id="nombreRutas" type="text" placeholder="NOMBRE RUTA">
+        <input id="telefonoRutas" type="text" placeholder="CIUDAD">
+        <input id="kilometrosRutas" type="number" placeholder="KILOMETROS">
+        <button onclick="guardarRuta()" id="botoncito3">REGISTRAR</button>
+    </div>
+    <div id="listaRutas"></div>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
