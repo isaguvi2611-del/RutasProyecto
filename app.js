@@ -319,7 +319,7 @@ function mostrarFichas() {
             fichas.forEach((ficha, index) => {
                 contenedor.innerHTML += `
             <article id="cardd">
-            <img id="iii" src="amarillo.png" alt="ruta">
+            <img id="iii" src="rs.png" alt="ruta">
                 <div class="content">
                     <h5>${ficha.ruta}</h5>
                     <h5>CONDUCTOR: ${ficha.conductor}<br>HORA: ${ficha.hora || "6:00"}<br>${ficha.estudiante}</h5>
