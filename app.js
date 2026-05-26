@@ -110,9 +110,17 @@ function guardarEstudiante(){
         JSON.stringify(estudiantes)
     );
     alert("Se han guardado los datos!");
+    const eventoEstudiante = new CustomEvent("estudianteCreado", {
+    detail: {
+        mensaje: "Estudiante creado correctamente"
+    }
+});
+document.addEventListener("estudianteCreado", (e) => {
+    console.log(e.detail.mensaje);
+});
+document.dispatchEvent(eventoEstudiante);
     mostrarEstudiantes();
 }
-
 function mostrarEstudiantes(){
     const lista = document.getElementById("listaEstudiantes");
     let estudiantes = JSON.parse(localStorage.getItem("estudiantes")) || [];
@@ -185,6 +193,15 @@ function guardarRuta(){
         JSON.stringify(rutas)
     );
     alert("Se han guardado los datos!");
+    const eventoRuta = new CustomEvent("rutaCreada", {
+    detail: {
+        mensaje: "Ruta creada correctamente"
+    }
+});
+document.addEventListener("rutaCreada", (e) => {
+    console.log(e.detail.mensaje);
+});
+document.dispatchEvent(eventoRuta);
     mostrarRutas();
 }
 
@@ -398,7 +415,7 @@ function abrirEditar(index){
 async function buscarClima(){
     let ciudad = document.getElementById("ciudad").value;
     if(ciudad.trim() == ""){
-        alert("FALTA LLENAR CAMPO");
+        alert("No se han llenado todos los campos!");
         return;
     }
     let apiKey = "04b9b0f2d0665bbecc8f03fa6f1ca4ca";
@@ -407,29 +424,18 @@ async function buscarClima(){
         let respuesta = await fetch(url);
         let datos = await respuesta.json();
         if(datos.cod == "404"){
-            alert("CIUDAD NO ENCONTRADA");
+            alert("No se encontro ciudad!");
             return;
         }
         let icono = datos.weather[0].icon;
-
 document.getElementById("resultadoClima").innerHTML = `
         
 <div class="tarjetaClima">
-
     <h3>${datos.name}</h3>
-
     <img 
     src="https://openweathermap.org/img/wn/${icono}@2x.png"
     alt="clima">
-
-    <h1>${datos.main.temp}°C</h1>
-
-    <p>${datos.weather[0].description}</p>
-
-    <p>
-    HUMEDAD: ${datos.main.humidity}%
-    </p>
-
+    <h1>${datos.main.temp}°C <br>${datos.weather[0].description}<br> HUMEDAD: ${datos.main.humidity}%</h1>
 </div>
 `;
     }catch(error){
@@ -437,3 +443,20 @@ document.getElementById("resultadoClima").innerHTML = `
         alert("ERROR");
     }
 }
+
+class RouteCard extends HTMLElement{
+    constructor(){
+        super();
+        const shadow = this.attachShadow({mode: "open"});
+        const template = document.getElementById("templateRuta");
+        shadow.appendChild(template.content.cloneNode(true));
+        shadow.querySelector(".ruta").textContent =
+            this.getAttribute("ruta");
+        shadow.querySelector(".conductor").textContent =
+            this.getAttribute("conductor");
+        shadow.querySelector(".estudiante").textContent =
+            this.getAttribute("estudiante");
+    }
+}
+customElements.define("route-card", RouteCard);
+
