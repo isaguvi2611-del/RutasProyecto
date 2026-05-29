@@ -470,13 +470,13 @@ function guardarAsistencia() {
         }
     });
     let resumenHTML = "<h2> Resumen de Asistencia</h2>";
-    resumenHTML += "<p id='presente'>Presentes:</p><ul>";
+    resumenHTML += "<p id='presente'>Presentes:</p>";
     presentes.forEach(p => resumenHTML += `<li>${p}</li>`);
 
-    resumenHTML += "</ul> <p id='ausente'>Ausentes: </p> <ul>";
+    resumenHTML += " <p id='ausente'>Ausentes: </p> ";
     ausentes.forEach(a => resumenHTML += `<li>${a}</li>`);
 
-    resumenHTML += "</ul>";
+    resumenHTML += "";
     const resumenDiv = document.getElementById("resumen");
     resumenDiv.innerHTML = resumenHTML;
     resumenDiv.style.display = "block";
