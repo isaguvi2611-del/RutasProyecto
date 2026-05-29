@@ -121,6 +121,7 @@ document.addEventListener("estudianteCreado", (e) => {
 document.dispatchEvent(eventoEstudiante);
     mostrarEstudiantes();
 }
+
 function mostrarEstudiantes(){
     const lista = document.getElementById("listaEstudiantes");
     let estudiantes = JSON.parse(localStorage.getItem("estudiantes")) || [];
@@ -450,13 +451,33 @@ class RouteCard extends HTMLElement{
         const shadow = this.attachShadow({mode: "open"});
         const template = document.getElementById("templateRuta");
         shadow.appendChild(template.content.cloneNode(true));
-        shadow.querySelector(".ruta").textContent =
-            this.getAttribute("ruta");
-        shadow.querySelector(".conductor").textContent =
-            this.getAttribute("conductor");
-        shadow.querySelector(".estudiante").textContent =
-            this.getAttribute("estudiante");
+        shadow.querySelector(".ruta").textContent = this.getAttribute("ruta");
+        shadow.querySelector(".conductor").textContent = this.getAttribute("conductor");
+        shadow.querySelector(".estudiante").textContent = this.getAttribute("estudiante");
     }
 }
 customElements.define("route-card", RouteCard);
 
+function guardarAsistencia() {
+    const checkboxes = document.querySelectorAll('#estudiantes input[type="checkbox"]');
+    let presentes = [];
+    let ausentes = [];
+    checkboxes.forEach(cb => {
+        if (cb.checked) {
+            presentes.push(cb.value);
+        } else {
+            ausentes.push(cb.value);
+        }
+    });
+    let resumenHTML = "<h2> Resumen de Asistencia</h2>";
+    resumenHTML += "<p id='presente'>Presentes:</p><ul>";
+    presentes.forEach(p => resumenHTML += `<li>${p}</li>`);
+
+    resumenHTML += "</ul> <p id='ausente'>Ausentes: </p> <ul>";
+    ausentes.forEach(a => resumenHTML += `<li>${a}</li>`);
+
+    resumenHTML += "</ul>";
+    const resumenDiv = document.getElementById("resumen");
+    resumenDiv.innerHTML = resumenHTML;
+    resumenDiv.style.display = "block";
+}
